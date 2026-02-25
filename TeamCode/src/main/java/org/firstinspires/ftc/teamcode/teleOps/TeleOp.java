@@ -31,13 +31,11 @@ public class TeleOp extends LinearOpMode {
             }
             //shooter :P
             if (gamepad1.a) {
-                shooter.lAdelante();
                 shooter.cAdelante();
+            }else if (gamepad1.x) {
+                shooter.lAdelante();
+            }else if (gamepad1.b) {
                 gancho.gAdelante();
-            } else if (gamepad1.x) {
-                shooter.lAtras();
-                shooter.cAtras();
-                gancho.gAtras();
             } else {
                 shooter.shooterStop();
                 gancho.gStop();
