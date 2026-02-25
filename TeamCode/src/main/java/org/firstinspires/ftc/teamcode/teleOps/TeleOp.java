@@ -12,12 +12,14 @@ public class TeleOp extends LinearOpMode {
     private Shooter shooter;
     private Gancho gancho;
     @Override
+
     public void runOpMode() throws InterruptedException {
         tanquesitoBonito = new TanquesitoBonito(hardwareMap);
         shooter = new Shooter(hardwareMap);
         gancho = new Gancho(hardwareMap);
+
         waitForStart();
-        while (opModeIsActive()) {
+        while (opModeIsActive()) {                                  //Movimiento del tanque
             if (gamepad1.dpad_up) {
                 tanquesitoBonito.adelante();
             } else if (gamepad1.dpad_down) {
@@ -28,17 +30,18 @@ public class TeleOp extends LinearOpMode {
                 tanquesitoBonito.izquierda();
             } else {
                 tanquesitoBonito.stop();
-            }
-            //shooter :P
-            if (gamepad1.a) {
+            }                                                       //Código del mecanismo
+
+                                                                    //Shooter :P
+            if (gamepad1.a) {                                       //Activación del indexer (alineador/cosito)
                 shooter.cAdelante();
-            }else if (gamepad1.b) {
+            } else if (gamepad1.right_bumper) {                     //Activación del launcher
                 shooter.lAdelante();
-            } else if (gamepad1.y) {
+            } else if (gamepad1.y) {                                //Activación del gancho (servo)
                 gancho.gAdelante();
             } else if (gamepad1.x) {
                 gancho.gAtras();
-            }else {
+            } else {
                 shooter.shooterStop();
                 gancho.gStop();
             }
