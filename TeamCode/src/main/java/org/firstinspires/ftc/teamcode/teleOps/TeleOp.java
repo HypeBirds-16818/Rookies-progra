@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.teleOps;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.subsystems.Gancho;
 import org.firstinspires.ftc.teamcode.subsystems.Shooter;
@@ -11,6 +12,9 @@ public class TeleOp extends LinearOpMode {
     private TanquesitoBonito tanquesitoBonito;
     private Shooter shooter;
     private Gancho gancho;
+    DcMotor motorIzquierdo = hardwareMap.get(DcMotor.class,"left");
+    DcMotor motorDerecho = hardwareMap.get(DcMotor.class,"right");
+
     @Override
 
     public void runOpMode() throws InterruptedException {
@@ -20,19 +24,15 @@ public class TeleOp extends LinearOpMode {
 
         waitForStart();
         while (opModeIsActive()) {                                  //Movimiento del tanque
-            if (gamepad1.dpad_up) {
-                tanquesitoBonito.adelante();
-            } else if (gamepad1.dpad_down) {
-                tanquesitoBonito.atras();
-            } else if (gamepad1.dpad_right) {
-                tanquesitoBonito.derecha();
-            } else if (gamepad1.dpad_left) {
-                tanquesitoBonito.izquierda();
-            } else {
-                tanquesitoBonito.stop();
-            }                                                       //Código del mecanismo
+            double mi = gamepad1.left_stick_y;
+            double md = gamepad1.right_stick_y;
 
-                                                                    //Shooter :P
+            motorIzquierdo.setPower(mi);
+            motorDerecho.setPower(md);
+
+                                                    //Código del mecanismo
+
+            //Shooter :P
             if (gamepad1.a) {                                       //Activación del indexer (alineador/cosito)
                 shooter.cAdelante();
             } else if (gamepad1.right_bumper) {                     //Activación del launcher
@@ -41,9 +41,9 @@ public class TeleOp extends LinearOpMode {
                 gancho.gAdelante();
             } else if (gamepad1.x) {
                 gancho.gAtras();
-            }else if (gamepad1.b) {
+            } else if (gamepad1.b) {
                 shooter.cAtras();
-            }else {
+            } else {
                 shooter.shooterStop();
                 gancho.gStop();
             }
