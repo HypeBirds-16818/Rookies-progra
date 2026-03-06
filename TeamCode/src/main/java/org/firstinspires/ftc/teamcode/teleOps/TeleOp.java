@@ -5,26 +5,24 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.subsystems.Gancho;
 import org.firstinspires.ftc.teamcode.subsystems.Shooter;
-import org.firstinspires.ftc.teamcode.subsystems.TanquesitoBonito;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp
 public class TeleOp extends LinearOpMode {
-    private TanquesitoBonito tanquesitoBonito;
+
     private Shooter shooter;
     private Gancho gancho;
-    DcMotor motorIzquierdo = hardwareMap.get(DcMotor.class,"left");
-    DcMotor motorDerecho = hardwareMap.get(DcMotor.class,"right");
 
     @Override
 
     public void runOpMode() throws InterruptedException {
-        tanquesitoBonito = new TanquesitoBonito(hardwareMap);
         shooter = new Shooter(hardwareMap);
         gancho = new Gancho(hardwareMap);
+        DcMotor motorIzquierdo = hardwareMap.get(DcMotor.class,"left");
+        DcMotor motorDerecho = hardwareMap.get(DcMotor.class,"right");
 
         waitForStart();
         while (opModeIsActive()) {                                  //Movimiento del tanque
-            double mi = gamepad1.left_stick_y;
+            double mi = -gamepad1.left_stick_y;
             double md = gamepad1.right_stick_y;
 
             motorIzquierdo.setPower(mi);
