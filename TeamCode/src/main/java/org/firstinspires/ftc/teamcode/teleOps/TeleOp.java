@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.teleOps;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.subsystems.Gancho;
 import org.firstinspires.ftc.teamcode.subsystems.Shooter;
@@ -19,6 +20,8 @@ public class TeleOp extends LinearOpMode {
         gancho = new Gancho(hardwareMap);
         DcMotor motorIzquierdo = hardwareMap.get(DcMotor.class,"left");
         DcMotor motorDerecho = hardwareMap.get(DcMotor.class,"right");
+
+
 
         waitForStart();
         while (opModeIsActive()) {                                  //Movimiento del tanque
