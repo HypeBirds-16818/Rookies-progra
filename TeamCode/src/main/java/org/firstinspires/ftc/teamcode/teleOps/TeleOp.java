@@ -31,7 +31,7 @@ public class TeleOp extends LinearOpMode {
             motorIzquierdo.setPower(md);
             motorDerecho.setPower(mi);
 
-                                                    //Código del mecanismo
+            //Código del mecanismo
 
             //Shooter :P
             if (gamepad1.a) {                                       //Activación del indexer (alineador/cosito)
@@ -39,15 +39,12 @@ public class TeleOp extends LinearOpMode {
             } else if (gamepad1.right_bumper) {                     //Activación del launcher
                 shooter.lAdelante();
             } else if (gamepad1.y) {                                //Activación del gancho (servo)
-                gancho.gAdelante();
+                gancho.gLocked();
             } else if (gamepad1.x) {
-                gancho.gAtras();
+                gancho.gUnlocked();
             } else if (gamepad1.b) {
                 shooter.cAtras();
-            } else {
-                shooter.shooterStop();
-                gancho.gStop();
-            }
+            } else {}
         }
     }
 }

@@ -2,20 +2,18 @@ package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class Gancho {
-    private final CRServo gancho;
+    private final Servo gancho;
     public Gancho(HardwareMap hardwareMap){
-        gancho = hardwareMap.get(CRServo.class,"gancho");
+        gancho = hardwareMap.get(Servo.class,"gancho");
     }
 
-    public void gAdelante(){
-        gancho.setPower(-1);
+    public void gLocked(){
+        gancho.setPosition(0.4);
     }
-    public void gAtras(){
-        gancho.setPower(1);
-    }
-    public void gStop(){
-        gancho.setPower(0);
+    public void gUnlocked(){
+        gancho.setPosition(1);
     }
 }
