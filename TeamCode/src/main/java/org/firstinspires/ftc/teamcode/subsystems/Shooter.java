@@ -17,7 +17,7 @@ public class Shooter {
     }
 
     public void cAdelante() {
-        cosita.setPower(0.65);
+        cosita.setPower(0.9);
 
     }
 
@@ -26,7 +26,7 @@ public class Shooter {
     }
 
     public void lAdelante() {
-        lanzador.setPower(.6);
+        lanzador.setPower(.9);
 
     }
 
