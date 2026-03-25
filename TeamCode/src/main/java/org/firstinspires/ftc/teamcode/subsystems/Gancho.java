@@ -11,9 +11,9 @@ public class Gancho {
     }
 
     public void gLocked(){
-        gancho.setPosition(0.4);
+        gancho.setPosition(-0.5);
     }
     public void gUnlocked(){
-        gancho.setPosition(1);
+        gancho.setPosition(-1);
     }
 }
