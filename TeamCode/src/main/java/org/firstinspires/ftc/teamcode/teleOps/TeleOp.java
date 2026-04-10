@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.subsystems.Gancho;
+import org.firstinspires.ftc.teamcode.subsystems.Intake;
 import org.firstinspires.ftc.teamcode.subsystems.Shooter;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp
@@ -13,11 +14,14 @@ public class TeleOp extends LinearOpMode {
     private Shooter shooter;
     private Gancho gancho;
 
+    private Intake intake;
+
     @Override
 
     public void runOpMode() throws InterruptedException {
         shooter = new Shooter(hardwareMap);
         gancho = new Gancho(hardwareMap);
+        intake = new Intake(hardwareMap);
         DcMotor motorIzquierdo = hardwareMap.get(DcMotor.class,"left");
         DcMotor motorDerecho = hardwareMap.get(DcMotor.class,"right");
 
@@ -35,16 +39,22 @@ public class TeleOp extends LinearOpMode {
 
             //Shooter :P
             if (gamepad1.a) {                                       //Activación del indexer (alineador/cosito)
-                shooter.cAdelante();
+                intake.iAdelante();
+            } else if (gamepad1.dpad_right) {                     //Activación del launcher
+                shooter.shooterStop();
             } else if (gamepad1.right_bumper) {                     //Activación del launcher
                 shooter.lAdelante();
+            } else if (gamepad1.left_bumper) {                     //Activación del launcher
+                shooter.lAtras();
             } else if (gamepad1.y) {                                //Activación del gancho (servo)
                 gancho.gLocked();
             } else if (gamepad1.x) {
                 gancho.gUnlocked();
             } else if (gamepad1.b) {
-                shooter.cAtras();
-            } else {}
+                intake.iAtras();
+            } else {
+                intake.iStop();
+            }
         }
     }
 }

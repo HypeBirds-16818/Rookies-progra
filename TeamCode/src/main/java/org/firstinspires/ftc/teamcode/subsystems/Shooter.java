@@ -5,25 +5,15 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Shooter {
-    private final DcMotor cosita, lanzador;
+    private final DcMotor lanzador;
 
     public Shooter(HardwareMap hardwareMap) {
         //Nombres de los motores :D
-        cosita = hardwareMap.get(DcMotor.class, "cosita");
         lanzador = hardwareMap.get(DcMotor.class, "lanzador");
 
-        cosita.setDirection(DcMotorSimple.Direction.FORWARD);
         lanzador.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
-    public void cAdelante() {
-        cosita.setPower(0.9);
-
-    }
-
-    public void cAtras() {
-        cosita.setPower(-0.5);
-    }
 
     public void lAdelante() {
         lanzador.setPower(.9);
@@ -36,6 +26,5 @@ public class Shooter {
 
     public void shooterStop() {
         lanzador.setPower(0);
-        cosita.setPower(0);
     }
 }
