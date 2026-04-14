@@ -29,8 +29,8 @@ public class TeleOp extends LinearOpMode {
 
         waitForStart();
         while (opModeIsActive()) {                                  //Movimiento del tanque
-            double mi = gamepad1.left_stick_y;
-            double md = -gamepad1.right_stick_y;
+            double mi = gamepad2.left_stick_y;
+            double md = -gamepad2.right_stick_y;
 
             motorIzquierdo.setPower(md);
             motorDerecho.setPower(mi);

@@ -15,14 +15,14 @@ public class Shooter {
     }
 
 
-    public void lAdelante() {                               //Lanzar bolainas
-        lanzador.setPower(.8);
+    public void lAdelante() {
+        lanzador.setPower(.35);
 
     }
 
     public void lAtras() {
         lanzador.setPower(-0.5);
-    }       //Desatorar bolainas
+    }
 
     public void shooterStop() {
         lanzador.setPower(0);
