@@ -8,20 +8,21 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Intake {
     private final DcMotor intake;
+            //Nombre del intake / indexer
             public Intake (HardwareMap hardwareMap){
                 intake = hardwareMap.get(DcMotor.class, "intake");
 
                 intake.setDirection(DcMotorSimple.Direction.FORWARD);
             }
 
-    public void iAdelante() {
+    public void iAdelante() {                       //Meter bolainas
         intake.setPower(1);
 
     }
 
     public void iAtras() {
         intake.setPower(-1);
-    }
+    }   //Sacar bolainas
     public void iStop() {
                 intake.setPower(0);
     }
