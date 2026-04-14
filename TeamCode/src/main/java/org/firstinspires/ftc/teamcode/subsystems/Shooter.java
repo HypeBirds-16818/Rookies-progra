@@ -16,12 +16,12 @@ public class Shooter {
 
 
     public void lAdelante() {
-        lanzador.setPower(.9);
+        lanzador.setPower(0.80);
 
     }
 
     public void lAtras() {
-        lanzador.setPower(-0.5);
+        lanzador.setPower(-1);
     }
 
     public void shooterStop() {
