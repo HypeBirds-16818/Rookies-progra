@@ -16,7 +16,7 @@ public class Shooter {
 
 
     public void lAdelante() {
-        lanzador.setPower(.35);
+        lanzador.setPower(.8);
 
     }
 

@@ -13,7 +13,6 @@ public class TeleOp extends LinearOpMode {
 
     private Shooter shooter;
     private Gancho gancho;
-
     private Intake intake;
 
     @Override
@@ -40,11 +39,11 @@ public class TeleOp extends LinearOpMode {
             //Shooter :P
             if (gamepad1.a) {                                       //Activación del indexer (alineador/cosito)
                 intake.iAdelante();
-            } else if (gamepad1.dpad_right) {                     //Activación del launcher
+            } else if (gamepad1.dpad_right) {                       //Activación del launcher
                 shooter.shooterStop();
             } else if (gamepad1.right_bumper) {                     //Activación del launcher
                 shooter.lAdelante();
-            } else if (gamepad1.left_bumper) {                     //Activación del launcher
+            } else if (gamepad1.left_bumper) {                      //Activación del launcher
                 shooter.lAtras();
             } else if (gamepad1.y) {                                //Activación del gancho (servo)
                 gancho.gLocked();
